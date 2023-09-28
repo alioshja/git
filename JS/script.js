@@ -140,6 +140,8 @@ function inscription() {
 
       //création du form.
       let formI = document.createElement('form');
+      formI.setAttribute('method','post');
+      formI.setAttribute('action','../php/gestion-inscription.php');
 
       //création des champs du form.
 
@@ -160,7 +162,7 @@ function inscription() {
       let labelFirstName = document.createElement('label');
       let inputFirstName = document.createElement('input');
 
-      labelFirstName.textContent = 'Prénom';
+      labelFirstName.textContent = 'Prenom';
       inputFirstName.setAttribute('type','text');
       inputFirstName.setAttribute('name','prenom');
 
