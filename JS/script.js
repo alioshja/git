@@ -209,8 +209,8 @@ function inscription() {
       formI.appendChild(labelPConfirm);
       formI.appendChild(document.createElement('br'));
       formI.appendChild(inputPConfirm);
-
-      // 
+      
+      // fin de la spa
 
             //implatation du bouton submit.
 
@@ -233,7 +233,7 @@ function inscription() {
 let etatConnection = false;
 
 function userConnected() {
-      
+
 }
 
 if (etatConnection == true) {
