@@ -6,9 +6,9 @@ try {
     // Configuration de PDO pour générer des exceptions en cas d'erreur.
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Vérifiez si le formulaire a été soumis
+    // Vérification si le formulaire a été soumis
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Récupérez les données du formulaire et effectuez le nettoyage et la validation
+        // Récupération des données du formulaire et nettoyage/validation
         $nom = trim($_POST['nom']);
         $nom = htmlspecialchars($nom);
         $nom = strip_tags($nom);
@@ -29,11 +29,14 @@ try {
         $passwordConfirm = htmlspecialchars($passwordConfirm);
         $passwordConfirm = strip_tags($passwordConfirm);
 
-        // Vérifiez si l'e-mail est valide
-        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-            echo 'Une erreur s\'est produite : l\'e-mail est invalide.';
+        // Vérification si l'e-mail est valide au niveau du format et si elle existe grace au DNS.
+        if (!filter_var($mail, FILTER_VALIDATE_EMAIL) && !checkdnsrr($domain, "MX")) { /////JE DOIS FAIRE UNE vérif si l'email existe sinon le reste 
+                                                                                        //foctionne mis a part le message d'erreur d'email qui
+                                                                                        // ne s'affiche pas mais la bdd n'est pas remplis a ce moment là
+            echo 'Une erreur s\'est produite : l\'e-mail est invalide ou n\'existe pas.';
         } elseif ($password !== $passwordConfirm) {
             echo 'Vos mots de passe ne correspondent pas.';
+            
         } elseif (!preg_match('/[A-Z]/', $password)) {
             echo 'Votre mot de passe ne contient aucune majuscule.';
         } elseif (!preg_match('/[0-9].*[0-9]/', $password)) {
@@ -41,7 +44,18 @@ try {
         } elseif (strlen($password) < 12) {
             echo 'Votre mot de passe doit contenir au moins 12 caractères.';
         } else {
-            // Hash du mot de passe
+            // Vérification si l'e-mail est déjà utilisé sur un autre compte.
+            $query = "SELECT COUNT(*) FROM Usersenattente WHERE MAIL = :mail";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindParam(':mail', $mail);
+            $stmt->execute();
+            $count = $stmt->fetchColumn();
+        
+            if ($count > 0) {
+                echo 'Cet e-mail est déjà utilisé pour un autre compte.';
+            }
+            else {
+            // Hash du mot de passe.
             $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 
             // Préparation de la requête d'insertion.
@@ -53,13 +67,15 @@ try {
             $stmt->bindParam(':prenom', $prenom);
             $stmt->bindParam(':mail', $mail);
             $stmt->bindParam(':password', $passwordHashed);
+        }
 
             // Exécution de la requête.
-            $stmt->execute();
+            if ($stmt->execute()) {
 
-            // Redirection de l'utilisateur vers une page de confirmation ou une autre page.
+            // Redirection de l'utilisateur vers la page du menu.
             header("Location:../html/index.html");
             exit;
+            }
         }
     } else {
         echo 'Merci de soumettre le formulaire.';
@@ -68,7 +84,7 @@ try {
     // Fermeture de la connexion PDO.
     $pdo = null;
 } catch (PDOException $e) {
-    // Gérez l'exception en cas d'erreur.
+    // exception en cas d'erreur.
     echo "Erreur de connexion à la base de données : " . $e->getMessage();
 }
 ?>
