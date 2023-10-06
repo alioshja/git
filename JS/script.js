@@ -211,8 +211,6 @@ function inscription() {
       formI.appendChild(labelPConfirm);
       formI.appendChild(document.createElement('br'));
       formI.appendChild(inputPConfirm);
-      
-      // fin de la spa
 
             //implatation du bouton submit.
 
@@ -226,18 +224,23 @@ function inscription() {
             formI.appendChild(submitButtonC);
 
       chargement.appendChild(formI);
+      // fin de la spa
 }
 
 //________________________________________________________________________________________________________
 //________________________________________________________________________________________________________
 //________________________________________________________________________________________________________
 
-let etatConnection = false;
-
-function userConnected() {
-
+//code AJAX.
+function supprimerLigne(ligneId) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "../php/gestion-bdd.php", true);
+      xhr.setRequestHeader()
 }
 
-if (etatConnection == true) {
+//ciblages des fonctions pour les boutons de migration de la bdd vers la bdd des personnes acceptées.
 
-}
+document.getElementById('1').addEventListener('click', function() {
+      var ligneId = this.getAttribute('data-id');
+      supprimerLigne(ligneId);
+});

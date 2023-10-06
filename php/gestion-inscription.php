@@ -2,7 +2,8 @@
 try {
     // Création de la connexion PDO à la base de données.
     $pdo = new PDO("mysql:host=localhost;dbname=trtconseil", 'root');
-
+    $ligneId = '';
+    $id = '';
     // Configuration de PDO pour générer des exceptions en cas d'erreur.
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -66,10 +67,13 @@ try {
             $stmt->bindParam(':mail', $mail);
             $stmt->bindParam(':password', $passwordHashed);
         }
-
+            // définition de la var ligneId.
+            $ligneId = $pdo->prepare('SELECT id FROM usersenattente')
             // Exécution de la requête.
             if ($stmt->execute()) {
-
+                //récupération de l'id dans une var pour la validation des inscriptions.
+                $ligneId = $ligneId->execute();                                                             //vérification nécéssaire.
+                
             // Redirection de l'utilisateur vers la page du menu.
             header("Location:../html/index.html");
             exit;
