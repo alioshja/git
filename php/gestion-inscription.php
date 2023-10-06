@@ -30,9 +30,7 @@ try {
         $passwordConfirm = strip_tags($passwordConfirm);
 
         // Vérification si l'e-mail est valide au niveau du format et si elle existe grace au DNS.
-        if (!filter_var($mail, FILTER_VALIDATE_EMAIL) && !checkdnsrr($domain, "MX")) { /////JE DOIS FAIRE UNE vérif si l'email existe sinon le reste 
-                                                                                        //foctionne mis a part le message d'erreur d'email qui
-                                                                                        // ne s'affiche pas mais la bdd n'est pas remplis a ce moment là
+        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) { 
             echo 'Une erreur s\'est produite : l\'e-mail est invalide ou n\'existe pas.';
         } elseif ($password !== $passwordConfirm) {
             echo 'Vos mots de passe ne correspondent pas.';
