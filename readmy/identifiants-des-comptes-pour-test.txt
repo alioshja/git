@@ -1,0 +1,7 @@
+pour test recruteur = nom='loub',prenom'ali',mail='lapanade@gmail.com',password='Coucoutoi1234',role='recruteur';
+
+pour test chercheur d'emploi = nom='',prenom'',mail='',password='',role='chercheur d'emploi';
+
+pour test  = nom='',prenom'',mail='',password='',role='';
+
+pour test  = nom='',prenom'',mail='',password='',role='';

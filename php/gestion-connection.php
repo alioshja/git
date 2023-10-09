@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 try {
     // initialisation connexion PDO à la base de données.
     $pdo = new PDO("mysql:host=localhost;dbname=trtconseil", 'root');
@@ -14,33 +14,29 @@ try {
         $saisi_password = $_POST['password'];
 
         // Préparation de requête pour récupérer les données de l'utilisateur.
-        $query = "SELECT id, nom, prénom, MAIL, Password FROM Users WHERE MAIL = :mail";
+        $query = "SELECT id, nom, prénom, MAIL, Password, role FROM Users WHERE mail = :mail AND password = :password";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':mail', $saisi_mail);
+        $stmt->bindParam(':password', $saisi_password)
         $stmt->execute();
 
         // Récupération des résultats de la requête.
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Vérification si l'utilisateur existe dans la base de données et que le mot de passe est correct.
-        if ($user && password_verify($saisi_password, $user['Password'])) {
-            //si les informations de l'utilisateur sont correctes, on les stocke dans des variables.
-            $id_utilisateur = $user['id'];
-            $nom_utilisateur = $user['nom'];
-            $prenom_utilisateur = $user['prénom'];
-
-            //création et exécution d'une fonction JS qui vas modifier le dom pour créer une interface utilisateur.
-            
-        echo '<script>';
-        echo 'function menuUser() {';
-        echo 'code js';
-        echo '}';
-        echo 'window.onload = menuUser';
-        echo '</script>';
-
-            exit;
-        } else {
-            echo "Identifiants incorrects. Veuillez réessayer.";
+        $user = $stmt->query($query);
+        if ($user) {
+            while ($row = $user->fetch(PDO::FETCH_ASSOC)) {
+                $mail = $row['mail'];
+                $password = $row['Password'];
+                $typeConte = $row['role'];
+                $nom = $row['nom'];
+                $prenom = $row['prenom'];
+                $utilisateur = [$mail, $password, $typeConte, $nom, $prenom];
+                $_SESSION['utilisateur'] = $utilisateur;
+                $pFormat = $_SESSION['utilisateur'];
+                echo json_encode($pFormat);
+            }
+            else{
+                echo'impossible de récupérer les donées pour cet utilisateur';
+            }
         }
     }
 } catch (PDOException $e) {

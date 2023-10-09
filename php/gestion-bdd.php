@@ -8,21 +8,7 @@ try {
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-    if ($requette->num_rows > 0) {
-        while ($ligne = $pdo->fetch_assoc()) {
-            //affiche les données dans le <main>.
-            echo "div";
-            echo "<p>" . $ligne[""] . "</p>";
-            echo "<p>" . $ligne[""] . "</p>";
-            echo "<p>" . $ligne[""] . "</p>";
-            echo "<p>" . $ligne[""] . "</p>";
-            echo "<p>" . $ligne[""] . "</p>";
-            echo "<p>" . $ligne[""] . "</p>";
-            //création des buttons un qui supprime la ligne dans la bdd et 2 qui ajoute la ligne dans une autre bdd en y ajoutant un role diférent.
-            echo "<button id='1' data-id='1'>suprimer</button>";
-            echo "<button id='2' data-id='2'>ajouter en tant que employeur</button>";
-            echo "<button id='3' data-id='3'>ajouter en tant que postulant</button>";
-        }
+    if () {
     } else {
         echo "Aucune donnée trouvée dans la base de données.";
     }

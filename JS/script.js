@@ -71,7 +71,7 @@ function connection() {
       let form = document.createElement('form');
       //définition des atributs.
       form.setAttribute('method', 'post');
-      form.setAttribute('action', 'gestion-connection.php');
+      form.setAttribute('action', '../php/gestion-connection.php');
       form.setAttribute('id', 'form')
 
       //création des champs et espaces.
