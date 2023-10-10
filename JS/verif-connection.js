@@ -10,13 +10,21 @@ xhr.onload = function () {
         const reponse = JSON.parse(xhr.responceText);
         //conversion de la valeur json envoyé par php en var js
         if (pformat == 'recruteur') {
+        const espace= document.createElement('');
 
+            espace.setAttribute('class','account');
         }else if (pformat == '') {
+            const espace1= document.createElement('');
 
+            espace1.setAttribute('class','account');
         }else if (pformat == '') {
+            const espace2= document.createElement('');
 
+            espace2.setAttribute('class','account');
         }else if (pformat == '') {
+            const espace3= document.createElement('');
 
+            espace3.setAttribute('class','account');
         } else ;
     }
 }

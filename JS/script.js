@@ -239,8 +239,3 @@ function supprimerLigne(ligneId) {
 }
 
 //ciblages des fonctions pour les boutons de migration de la bdd vers la bdd des personnes acceptées.
-
-document.getElementById('1').addEventListener('click', function() {
-      var ligneId = this.getAttribute('data-id');
-      supprimerLigne(ligneId);
-});
