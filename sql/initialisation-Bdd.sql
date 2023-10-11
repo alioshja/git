@@ -20,6 +20,8 @@ Password VARCHAR(60) NOT NULL,
 role varchar(60) NOT NULL
 );
 
-INSERT INTO users ('nom, prenom, mail, Password, role') VALUES ('loub','ali','lapanade@gmail.com','Coucoutoi1234','recruteur');
-
+INSERT INTO users (nom, prenom, mail, Password, role) VALUES ('loub','ali','lapanade@gmail.com','Coucoutoi1234','recruteur');
+INSERT INTO users (nom, prenom, mail, Password, role) VALUES ('aldri','jean','heyhohey@gmail.com','Bienvenuatoi101','employé');
+INSERT INTO users (nom, prenom, mail, Password, role) VALUES ('dupont','fabien','fabienteveutdubien@outlook.fr','savapasNON123','administrateur');
+INSERT INTO users (nom, prenom, mail, Password, role) VALUES ('tecnu','isabelle','laplusbelledesisabelle@outlook.fr','lemelon181','consultant');
 DROP TABLE users;

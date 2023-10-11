@@ -70,9 +70,8 @@ function connection() {
       //création du form.
       let form = document.createElement('form');
       //définition des atributs.
-      form.setAttribute('method', 'post');
-      form.setAttribute('action', '../php/gestion-connection.php');
-      form.setAttribute('id', 'form')
+      form.setAttribute('method', 'POST');
+      form.setAttribute('action','../php/gestion-connection.php');
 
       //création des champs et espaces.
 
@@ -231,11 +230,3 @@ function inscription() {
 //________________________________________________________________________________________________________
 //________________________________________________________________________________________________________
 
-//code AJAX.
-function supprimerLigne(ligneId) {
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "../php/gestion-bdd.php", true);
-      xhr.setRequestHeader()
-}
-
-//ciblages des fonctions pour les boutons de migration de la bdd vers la bdd des personnes acceptées.

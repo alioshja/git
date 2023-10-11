@@ -14,30 +14,29 @@ try {
         $saisi_password = $_POST['password'];
 
         // Préparation de requête pour récupérer les données de l'utilisateur.
-        $query = "SELECT id, nom, prénom, MAIL, Password, role FROM Users WHERE mail = :mail AND password = :password";
+        $query = "SELECT id, nom, prenom, mail, Password, role FROM Users WHERE mail = :mail AND password = :password";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':mail', $saisi_mail);
-        $stmt->bindParam(':password', $saisi_password)
+        $stmt->bindParam(':password', $saisi_password);
         $stmt->execute();
 
         // Récupération des résultats de la requête.
-        $user = $stmt->query($query);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user) {
-            while ($row = $user->fetch(PDO::FETCH_ASSOC)) {
-                $mail = $row['mail'];
-                $password = $row['Password'];
-                $typeConte = $row['role'];
-                $nom = $row['nom'];
-                $prenom = $row['prenom'];
+                $mail = $user['mail'];
+                $password = $user['Password'];
+                $typeConte = $user['role'];
+                $nom = $user['nom'];
+                $prenom = $user['prenom'];
                 $utilisateur = [$mail, $password, $typeConte, $nom, $prenom];
                 $_SESSION['utilisateur'] = $utilisateur;
-                $pFormat = $_SESSION['utilisateur'];
-                echo json_encode($pFormat);
-            }
-            else{
-                echo'impossible de récupérer les donées pour cet utilisateur';
-            }
+                header('location: page-personelle.php');
+                
         }
+        else{
+            echo'impossible de récupérer les donées pour cet utilisateur';
+        }
+        
     }
 } catch (PDOException $e) {
     // En cas d'erreur, on gére l'exception.
