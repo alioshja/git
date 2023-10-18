@@ -10,9 +10,8 @@ body {
 }
 
 h1 {
-    font-size: 3vw;
+    font-size: 2vw;
     color: rgb(88, 88, 88);
-
 }
 
 nav {
@@ -61,6 +60,8 @@ input {
     width: 4vw;
 }
 .tailleMenu {
+    margin: 0px;
+    padding: 0px;
     position: absolute;
     z-index: 1;
     right: 0vw;
@@ -69,4 +70,14 @@ input {
     width: 20vw;
     background-color: rgb(244, 158, 61);
     border: 2px solid rgb(129, 129, 251);
+}
+.listeDattente {
+    background-color: rgb(80, 179, 255);
+}
+.button{
+margin: 0px;
+padding: 0px;
+height: 5vh;
+width: auto;
+
 }

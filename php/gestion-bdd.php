@@ -8,7 +8,7 @@ try {
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-    if () {
+    if ($pdo) {
     } else {
         echo "Aucune donnée trouvée dans la base de données.";
     }
@@ -16,5 +16,5 @@ try {
 catch(PDOException $e) {
 echo 'une erreur est survenu impossible d\'avoir acces a la bdd';
 }
-$pdo->close();
+
 ?>

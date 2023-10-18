@@ -1,5 +1,6 @@
 <?php
  session_start(); 
+ include_once 'gestion-bdd.php'
  ?>
 <!DOCTYPE html>
 <html>
@@ -8,18 +9,17 @@
         <meta content="page de modération pour valider les demandes de création de comptes et déterminé si il sajit d'employeurs ou de postulant">
         <link rel="stylesheet" href="../Css/stylesheet.css">
         <script src="../JS/script.js"></script>
-        <script src="../JS/gestion-compte-personel.js"></script>
     </head>
     <body>
         <header>
-        <nav id="burger">
-            <button onclick="burgerC()" class="account">
+        <nav id='ok'>
+            <button onclick="burgerC()" class="account button">
             <img src="../images/vecteur-d-icone-de-menu-icone-du-menu-web-symbole-du-menu-hamburger-2r2hg34.jpg" class="burger" alt="menu">
             </button>
             <h1>Connecté à <?php echo $_SESSION['utilisateur'][4]; ?></h1><!--session==[$mail, $password, $typeConte, $nom, $prenom]-->
         </nav>
         </header>
-        <main>
+        <main class="listeDattente" id="chargement">
             <h2>Heureux de vous revoir <?php echo $_SESSION['utilisateur'][4];?>.</h2>
             <br>
             <h3>Vos informations:</h3>
@@ -34,6 +34,7 @@
             <br>
 
         </main>
+        <script src="../JS/gestion-compte-personel.js"></script>
     </body>
     <script>
     // Utilisation de PHP pour générer du code JavaScript en incluant les valeurs de la session.
