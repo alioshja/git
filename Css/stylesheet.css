@@ -79,5 +79,21 @@ margin: 0px;
 padding: 0px;
 height: 5vh;
 width: auto;
-
+}
+.redirection {
+    text-decoration: none;
+    background-color: rgb(202, 202, 202);
+    border-radius: 1vh;
+    height: 5vh;
+    width: 15vw;
+    font-size: 2vw;
+}
+a {
+    text-decoration: none;
+}
+.offres {
+    font-size: 1em;
+    margin-left: 15vw;
+    text-align: inherit;
+    text-align: left;
 }

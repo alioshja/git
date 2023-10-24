@@ -23,12 +23,13 @@ try {
         // Récupération des résultats de la requête.
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user) {
+                $id = $user['id'];
                 $mail = $user['mail'];
                 $password = $user['Password'];
                 $typeConte = $user['role'];
                 $nom = $user['nom'];
                 $prenom = $user['prenom'];
-                $utilisateur = [$mail, $password, $typeConte, $nom, $prenom];
+                $utilisateur = [$id, $mail, $password, $typeConte, $nom, $prenom];
                 $_SESSION['utilisateur'] = $utilisateur;
                 header('location: page-personelle.php');
                 

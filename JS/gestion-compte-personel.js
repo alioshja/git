@@ -1,31 +1,12 @@
 let menuouvert = false;
 let divb = document.createElement('div');
-let uaces = '';
-
-//fonction qui vas permetre de donner un acces different en fonction du role car la page sera généré en fonction du role;
-function acces(uaces) {
-    const main = document.getElementById('chargement');
-    main.innerHTML = '';
-    if(uaces=='consultant') {
-    let div = document.createElement('div');
-    div.setAttribute('class','listeDattente');
-    main.appendChild(div);
-    }
-    else if(uaces=='administrateur') {
-        
-    }
-    else if(uaces=='employeur') {
-
-    }
-    else {
-    };
-}
 
 //__________________________________________________________________________________________
 //__________________________________________________________________________________________
 //__________________________________________________________________________________________
 
 //classe pour le menu burger apres connection.
+
 function burgerC() {
     
     if (menuouvert) {
@@ -38,62 +19,68 @@ function burgerC() {
     
     divb.setAttribute('class', 'tailleMenu');
     menuouvert = true;
-            //utilisation du dom commune a tout type de compte.
-    let a = document.createElement('button');
-    a.textContent = 'mes messages';
-    a.setAttribute('onclick','messagerie()');
-    a.setAttribute('id','button5');
-    a.setAttribute('class','button');
-    divb.appendChild(a);
-        //creation du bouton qui créra les messages.
-    let b = document.createElement('button');
-    b.setAttribute('class','button');
-    b.textContent = 'créer un message.';
-    b.setAttribute('onclick','sMessage');
-    b.setAttribute('id','button6');
-    divb.appendChild(b);
-    menuouvert = true;
 
+    //parti de spa commune a tout les users.
+    let lien3 = document.createElement('a');
+    lien3.href = '../php/liste-offres-d\'emploi.php';
+    lien3.textContent = 'Voir les offres'
+
+    let o = document.createElement('button');
+    o.setAttribute('id','button5');
+    o.setAttribute('class','button');
+
+    o.appendChild(lien3);
+    divb.appendChild(o);
 
     //creation de spa.
-        if (utilisateurConnecte.role=='consultant') {
+        if (utilisateurConnecte.role =='consultant') {
         //creation du button1.
-        uaces = 'consultant';
         let button1 = document.createElement('button');
         button1.setAttribute('id','button1');
         button1.textContent = 'gérer les comptes';
-        button1.setAttribute('onclick','acces(uaces)')
         button1.setAttribute('class','button');
         divb.appendChild(button1);
         console.log('ok')
         }
-        else if (utilisateurConnecte.role== 'ouvrier') {
+        else if (utilisateurConnecte.role == 'employé') {
         //creation du button2.
-        uaces = 'auccun';
-        let button2 = document.createElement('button');
-        button2.setAttribute('id','button2');
-        button2.textContent = 'messagerie';
-        button2.setAttribute('onclick','acces(uaces)');
-        button2.setAttribute('class','button');
-        divb.appendChild(button2);
+        let a = document.createElement('button');
+        a.setAttribute('class','button');
+        a.setAttribute('id', 'button2');
+        //lien
+        let lien2 = document.createElement('a');
+        lien2.href = '../php/upload.php'; 
+        lien2.textContent = 'déposer mon cv';
+        a.appendChild(lien2);
+    
+        divb.appendChild(a);
         }
-        else if (utilisateurConnecte.role== 'employeur') {
+        else if (utilisateurConnecte.role == 'recruteur') {
         //creation du button3.
-        uaces = 'employeur';
-        let button3 = document.createElement('button');
-        button3.setAttribute('id','button3');
-        button3.textContent = 'gérer les comptes';
-        button3.setAttribute('onclick','acces(uaces)');
-        button3.setAttribute('class','button');
-        divb.appendChild(button3);
+        let b = document.createElement('button');
+        b.setAttribute('class', 'button');
+        
+        // Création du lien
+        let lien = document.createElement('a');
+        lien.href = '../php/form-employeur-offre.php'; 
+        lien.textContent = 'Créer une offre';
+        
+        // Ajout du lien à l'intérieur du bouton
+        b.appendChild(lien);
+        
+        // Définition de l'ID du bouton
+        b.setAttribute('id', 'button3');
+        
+        // Ajout du bouton au conteneur "divb"
+        divb.appendChild(b);
         }
-        else if (utilisateurConnecte.role== 'administrateur') {
+        else if (utilisateurConnecte.role == 'administrateur') {
         //creation du button4.
         uaces = 'administrateur';
         let button4 = document.createElement('button');
         button4.setAttribute('id','button4');
-        button4.textContent = 'gérer les comptes';
-        button4.setAttribute('onclick','acces(uaces)');
+        button4.textContent = 'back-office';
+        button4.setAttribute('onclick','back()');
         button4.setAttribute('class','button');
         divb.appendChild(button4);
         }
@@ -106,8 +93,13 @@ document.getElementById('ok').appendChild(divb)
 //________________________________________________________________________________________
 //________________________________________________________________________________________
 
-//donne acces a la messagerie apres execution en modifiant les dom.
+//fonctions pour les différents roles.
 
-function messagerie() {
-let ms = document.createElement()
+function back() {
+
 };
+
+function read() {
+
+};
+//la fonction pour gérer les comptes sera coté php.
