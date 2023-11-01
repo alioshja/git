@@ -68,7 +68,7 @@ try {
             $stmt->bindParam(':password', $passwordHashed);
         }
             // définition de la var ligneId.
-            $ligneId = $pdo->prepare('SELECT id FROM usersenattente')
+            $ligneId = $pdo->prepare('SELECT id FROM usersenattente');
             // Exécution de la requête.
             if ($stmt->execute()) {
                 //récupération de l'id dans une var pour la validation des inscriptions.
