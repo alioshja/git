@@ -38,10 +38,14 @@ function burgerC() {
             // Créer un consultant.
             let button1 = document.createElement('button');
             button1.setAttribute('id', 'button1');
-            button1.textContent = 'gérer les comptes';
             button1.setAttribute('class', 'button');
+
+            let link = document.createElement('a');
+            link.setAttribute('href', '../php/controle-postulant.php');
+            link.textContent = 'gérer les comptes';
+
+            button1.appendChild(link);
             divb.appendChild(button1);
-            console.log('ok');
         }
         else if (utilisateurConnecte.role == 'employé') {
             //creation du button2.

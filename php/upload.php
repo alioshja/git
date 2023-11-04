@@ -41,7 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['pdfFile'])) {
         if (move_uploaded_file($_FILES['pdfFile']['tmp_name'], $uploadedFile)) {
             $fileData = file_get_contents($uploadedFile);
 
-            // Utilisez des requêtes préparées pour éviter les injections SQL
+            // Encodage des données en base64 avant de les insérer dans la base de données
+            $encodedFileData = base64_encode($fileData);                                    //a vérifier
+
+            // Utilisation des requêtes préparées pour éviter les injections SQL
             $query = 'INSERT INTO pdf_files (user_id, file_name, file_data) VALUES (:user_id, :file_name, :file_data)';
             $stmt = $conect->prepare($query);
             $stmt->bindParam(':user_id', $userId);
