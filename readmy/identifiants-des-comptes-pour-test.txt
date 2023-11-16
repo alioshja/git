@@ -1,9 +1,9 @@
-pour test recruteur = nom='loub',prenom'ali',mail='lapanade@gmail.com',password='Coucoutoi1234',role='recruteur';
+pour test recruteur = nom='loub',prenom'ali',mail='lapanade12@gmail.com',password='Coucoutoi1234',role='recruteur';
 
-pour test employé = nom=''aldri'',prenom''jean'',mail=''heyhohey@gmail.com'',password=''Bienvenuatoi101'',role='employé';
+pour test employé = nom=''aldri'',prenom''jean'',mail=''heyhoheyhey12@gmail.com'',password=''Bienvenuatoi101'',role='employé';
 
 pour test administrateur = nom=''dupont'',prenom''fabien'',mail=''fabienteveutdubien@outlook.fr'',password=''SavapasNON123'',role=''administrateur'';
 
-pour test consultant = nom=''tecnu'',prenom''isabelle'',mail=''laplusbelledesisabelle@outlook.fr'',password=''Lemelon181'',role=''consultant'';
+pour test consultant = nom=''tecnu'',prenom''isabelle'',mail=''laplusbelledesisabelle@gmail.com'',password=''Lemelon181'',role=''consultant'';
 
 

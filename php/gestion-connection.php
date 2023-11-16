@@ -25,7 +25,7 @@ try {
         if ($user) {
                 $id = $user['id'];
                 $mail = $user['mail'];
-                $password = $user['Password'];
+                $password = $saisi_password;
                 $typeConte = $user['role'];
                 $nom = $user['nom'];
                 $prenom = $user['prenom'];

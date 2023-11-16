@@ -35,17 +35,36 @@ function burgerC() {
         //creation de spa.
         if (utilisateurConnecte.role == 'consultant') {
             //creation du button1.
-            // Créer un consultant.
             let button1 = document.createElement('button');
             button1.setAttribute('id', 'button1');
             button1.setAttribute('class', 'button');
-
+            //bouton pour gestion comptes
+            let button2 = document.createElement('button');
+            button2.setAttribute('id', 'button2');
+            button2.setAttribute('class', 'button');
+            //bouton pour gestion offres.
+            let button3 = document.createElement('button');
+            button3.setAttribute('id', 'button2');
+            button3.setAttribute('class', 'button');
+            //lien1
             let link = document.createElement('a');
             link.setAttribute('href', '../php/controle-postulant.php');
-            link.textContent = 'gérer les comptes';
-
+            link.textContent = 'migrer demandes';
+            //lien2
+            let link2 = document.createElement('a');
+            link2.href = '../php/gestion-migration-de-compte.php';
+            link2.textContent = 'gestion comptes';
+            //link3
+            let link3 = document.createElement('a');
+            link3.href = '../php/validation-offre-par-consultant.php';
+            link3.textContent = 'gestion offres';
+            //attribution des emplacements.
             button1.appendChild(link);
+            button2.appendChild(link2);
+            button3.appendChild(link3);
             divb.appendChild(button1);
+            divb.appendChild(button2);
+            divb.appendChild(button3);
         }
         else if (utilisateurConnecte.role == 'employé') {
             //creation du button2.
@@ -111,15 +130,7 @@ function burgerC() {
 //________________________________________________________________________________________
 //________________________________________________________________________________________
 
-//fonctions pour les différents roles.
 
-function back() {
-
-};
-
-function read() {
-
-};
 //la fonction pour gérer les comptes sera coté php.
 
 function fC() {
