@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../Css/stylesheet.css">
-    <script src="../JS/script.js"></script>
-    <script src="../JS/menu-burger.js"></script>
+    <link rel="stylesheet" href="Css/stylesheet.css">
+    <script src="JS/script.js"></script>
+    <script src="JS/menu-burger.js"></script>
     <meta charset="utf-8" lang="fr">
     <meta content="page de l'application TRT Conseil">
     <title>TRT Conseil, notre métier vous servir</title>
@@ -15,7 +15,7 @@
     <header>
         <nav id="burger">
             <button onclick="burger()" class="account">
-            <img src="../images/vecteur-d-icone-de-menu-icone-du-menu-web-symbole-du-menu-hamburger-2r2hg34.jpg" class="burger" alt="menu">
+            <img src="images/vecteur-d-icone-de-menu-icone-du-menu-web-symbole-du-menu-hamburger-2r2hg34.jpg" class="burger" alt="menu">
             </button>
             <!-- <button onclick="inscription()">S'inscrire</button>
             <button onclick="connection()">Se connecter</button>

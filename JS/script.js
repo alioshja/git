@@ -63,7 +63,7 @@ function connection() {
       // Sélectionner l'élément avec l'ID 'chargement'.
       let chargement = document.getElementById('chargement');
 
-      // Effacer tout le contenu de l'élément 'chargement'.
+      // Effacer tout le contenu de l'élément 'chargement'
 
       chargement.innerHTML = '';
 
