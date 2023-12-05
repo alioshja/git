@@ -71,7 +71,7 @@ function connection() {
       let form = document.createElement('form');
       //définition des atributs.
       form.setAttribute('method', 'POST');
-      form.setAttribute('action','../php/gestion-connection.php');
+      form.setAttribute('action','php/gestion-connection.php');
 
       //création des champs et espaces.
 
@@ -140,7 +140,7 @@ function inscription() {
       //création du form.
       let formI = document.createElement('form');
       formI.setAttribute('method','post');
-      formI.setAttribute('action','../php/gestion-inscription.php');
+      formI.setAttribute('action','php/gestion-inscription.php');
 
       //création des champs du form.
 

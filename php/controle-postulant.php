@@ -52,18 +52,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email_employe = $stmt_recup_email2->fetchColumn();       
             //recup mail fonctionne
 
-             // Envoyer un e-mail
+            // Envoyer un e-mail
+            $mailhog_ip = "127.0.0.1";
+            $mailhog_port = "1025";
 
             $to = $email_employeur;
             $subject = "un utilisateur a postuler a votre offre";
-            $message = "vous pouvez contacter cet utilisateur a l'adresse mail" . $email_employe . ". cet utilisateur a été aprouvé par votre conseillé";
-            $header = "Content-Type: text/plain; charset=utf-8\r\n";
-            $header .= "From: " . $_SESSION['utilisateur'][1];
+            $message = "vous pouvez contacter cet utilisateur a l'adresse mail " . $email_employe . ", cet utilisateur a été aprouvé par votre conseillé";
+            //$header = "Content-Type: text/plain; charset=utf-8\r\n";
+            $headers = "From: " . $_SESSION['utilisateur'][1] . "\r\n";
 
-            ini_set("SMTP", "localhost");
-            ini_set("smtp_port", "25");
+            ini_set("SMTP", "127.0.0.1");
+            ini_set("smtp_port", "1025");
 
-            if(mail($to, $subject, $message, $header)) {
+            if(mail($to, $subject, $message, $headers)) {
                 echo 'envoyé';
             }else {
                 echo 'erreur l\'ors de l\'envoi du mail';
