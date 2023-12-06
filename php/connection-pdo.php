@@ -2,13 +2,13 @@
 session_start();
 
     //local
-$hostname = 'localhost';
-$username = 'a6theq9v947ueil2';
-$password = 'n7e6hnqxptvj4igl';
-$database = 'fbo68nburz9od6in';
+$hostname = 'rwo5jst0d7dgy0ri.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+$username = 'ynosn8mgsbydc4qz';
+$password = 'jg8knnts6wxd9va1';
+$database = 'nfyz4op4dl8fjihn';
 
 try {
-$conect = new PDO('mysql:host=wb39lt71kvkgdmw0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=up7lwfziqqbfgpbx', $username, $password);
+$conect = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
 $conect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(PDOException $e) {
