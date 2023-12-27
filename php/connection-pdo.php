@@ -8,7 +8,7 @@ $password = 'jg8knnts6wxd9va1';
 $database = 'nfyz4op4dl8fjihn';
 
 try {
-$conect = new PDO("mysql:host=$hostname;port=3306;dbname=$database", $username, $password);
+$conect = new PDO("mysql://ynosn8mgsbydc4qz:jg8knnts6wxd9va1@rwo5jst0d7dgy0ri.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/nfyz4op4dl8fjihn");
 $conect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(PDOException $e) {
